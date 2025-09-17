@@ -108,6 +108,12 @@ Task:
 2) Use spread syntax with Math.min(...) and Math.max(...) to find extremes.
 3) Display both values.
 */
+const nums=[10,20,30,40,50,60,70,70,90,100];
+const main=Math.min(...nums);
+const max=Math.max(...nums);
+
+console.log(min);
+console.log(max);
 
 // ===================================================================
 // TODO-6: EXCEPTIONS — try/catch/finally with EMPTY ARRAY edge case
@@ -119,7 +125,22 @@ Task:
 3) Handle the error using try { ... } catch (e) { ... } finally { ... } and log messages
    in each block so you can see the flow of control.
 */
-
+function maxElementInArr(arr)
+{
+     if (!Array.isArray(arr) || arr.length === 0) {
+    throw new Error("Array must be non-empty.");
+  }
+  return Math.max(...arr);
+  
+}
+try {
+  const x = maxElementInArr([]);   
+  console.log("Max element:", x);
+} catch (e) {
+  console.log("error message:", e.message);
+} finally {
+  console.log("Finally block is executed.");
+}
 // ===================================================================================
 // TODO-7: REGEX + forEach — find words containing 'ab' and log matches from the list
 // ===================================================================================
@@ -131,5 +152,14 @@ Given: const words = ["ban", "babble", "make", "flab"];
 3) For matches, log "<word> matches!".
 4) Display the words that matches the pattern.
 */
+const words = ["ban", "babble", "make", "flab"];
+const re = /ab/;   
+
+words.forEach(w => {
+  if (re.test(w)) {
+    console.log(`${w} matches!`);
+  }
+});
+
 
 // End of Advance JavaScript Lab — good luck!
